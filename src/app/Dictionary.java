@@ -97,24 +97,29 @@ public class Dictionary {
 
 				// Print each sense definition
 				for (JsonValue sense : senses) {
-					JsonArray defs = ((JsonObject) sense).getJsonArray("definitions");
+					if (senses != null) {
+						JsonArray defs = ((JsonObject) sense).getJsonArray("definitions");
 
-					for (JsonValue def : defs) {
-						definitionSet += ++count + ". " + def.toString().replaceAll("\"", ""); // strip
-																								// quotes
-					}
+						if (defs != null) {
 
-					// Print each sub-sense definition
-					JsonArray subsenses = ((JsonObject) sense).getJsonArray("subsenses");
+							for (JsonValue def : defs) {
+								definitionSet += ++count + ". " + def.toString().replaceAll("\"", ""); // strip
+								// quotes
+							}
 
-					if (subsenses != null) {
-						for (JsonValue subsense : subsenses) {
-							JsonArray subdefs = ((JsonObject) subsense).getJsonArray("definitions");
+							// Print each sub-sense definition
+							JsonArray subsenses = ((JsonObject) sense).getJsonArray("subsenses");
 
-							if (subdefs != null) {
-								for (JsonValue subdef : subdefs) {
-									definitionSet += "; " + subdef.toString().replaceAll("\"", ""); // strip
-																									// quotes
+							if (subsenses != null) {
+								for (JsonValue subsense : subsenses) {
+									JsonArray subdefs = ((JsonObject) subsense).getJsonArray("definitions");
+
+									if (subdefs != null) {
+										for (JsonValue subdef : subdefs) {
+											definitionSet += "; " + subdef.toString().replaceAll("\"", ""); // strip
+											// quotes
+										}
+									}
 								}
 							}
 						}

@@ -13,26 +13,30 @@ public class DictionaryTester {
 		String hiddenWord = word.replaceAll("[a-z]", "_ ");
 		String guess = "";
 
-		// Show defintion
+		// Show definition
 		System.out.println(definition);
 
 		// Show hidden word
 		System.out.println(hiddenWord);
 
 		// Ask user to guess
-		System.out.println("What is the word?");
+		System.out.print("What is the word?");
 		guess = scan.nextLine();
 
 		// Check answer
 		if (guess.equals(word)) {
-			System.out.println("Correct!");
+			System.out.println("\nCorrect!");
 		} else {
-			System.out.println("Incorrect!");
+			System.out.println("\nIncorrect!");
+
+			// Give definition of the word the user guessed
+            System.out.println("The definition of " + guess + " is:");
+            System.out.printf(Dictionary.getDefinition(guess));
+
+            // Show the un-hidden word
+            System.out.println("The real word is " + word + ".");
 		}
 
-		// Show the un-hidden word
-		System.out.println("The word is " + word + ".");
-		
 		scan.close();
 	}
 }
