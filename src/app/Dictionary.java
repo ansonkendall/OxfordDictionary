@@ -33,7 +33,7 @@ public class Dictionary {
 	 * @param word
 	 * @return JsonObject
 	 */
-	public static JsonObject getEntry(String word) {
+	private static JsonObject getEntry(String word) {
 		return getEntry(word, "en");
 	}
 
@@ -44,13 +44,14 @@ public class Dictionary {
 	 * @param language
 	 * @return A JSON Object
 	 */
-	public static JsonObject getEntry(String word, String language) {
+	private static JsonObject getEntry(String word, String language) {
 
 		String apiUrl = "https://od-api.oxforddictionaries.com:443/api/v1/entries/" + language + "/"
 				+ word.toLowerCase();
 		JsonObject results = null;
 
 		try {
+            System.out.println("Processing...\n");
 			URL url = new URL(apiUrl);
 			HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
 			urlConnection.setRequestProperty("Accept", "application/json");
@@ -64,7 +65,8 @@ public class Dictionary {
 			results = (JsonObject) allresults.getJsonArray("results").get(0);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+            System.out.println("Trouble finding word. Please try again.");
 		}
 
 		return results;

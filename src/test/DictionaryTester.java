@@ -8,34 +8,21 @@ public class DictionaryTester {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String word = Dictionary.getRandomWord();
-		String definition = Dictionary.getDefinition(word);
-		String hiddenWord = word.replaceAll("[a-z]", "_ ");
-		String guess = "";
+		String randWord = Dictionary.getRandomWord();
+		String randWordDef = Dictionary.getDefinition(randWord);
 
-		// Show definition
-		System.out.println(definition);
+		// Show random word and definition
+        System.out.println("The word is " + randWord);
+		System.out.println("The definition is " + randWordDef);
 
-		// Show hidden word
-		System.out.println(hiddenWord);
+		// Other information
+        System.out.print("Here is the word without vowels: ");
+        String noVowels = randWord.replaceAll("[aeiou]", "-");
+        System.out.println(noVowels);
 
-		// Ask user to guess
-		System.out.print("What is the word?");
-		guess = scan.nextLine();
+        System.out.println("The word has " + randWord.length() + " letters.");
 
-		// Check answer
-		if (guess.equals(word)) {
-			System.out.println("\nCorrect!");
-		} else {
-			System.out.println("\nIncorrect!");
-
-			// Give definition of the word the user guessed
-            System.out.println("The definition of " + guess + " is:");
-            System.out.printf(Dictionary.getDefinition(guess));
-
-            // Show the un-hidden word
-            System.out.println("The real word is " + word + ".");
-		}
+        System.out.println("The first letter is " + randWord.charAt(0) + ".");
 
 		scan.close();
 	}
