@@ -2,4 +2,4 @@
  * @author Katie Jergens
  *
  */
-package resources;
+package app.resources;

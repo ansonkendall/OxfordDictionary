@@ -14,7 +14,7 @@ import javax.json.JsonValue;
 import javax.net.ssl.HttpsURLConnection;
 
 /**
- * Library to get definitions of any word on the Oxford Dictionary API and also
+ * Library to get definitions of any word on the Dictionary Dictionary API and also
  * to get a random common word.
  * 
  * See: https://developer.oxforddictionaries.com/documentation
@@ -22,7 +22,7 @@ import javax.net.ssl.HttpsURLConnection;
  * @author Katie Jergens
  * 
  */
-public class Oxford {
+public class Dictionary {
 
 	private final static String app_id = "7d68c62b";
 	private final static String app_key = "da9b8ac24ea7c4ecd9324e2a083b5ee7";
@@ -143,7 +143,7 @@ public class Oxford {
 		String[] letterGroups = { "AB", "CD", "EG", "HK", "LN", "MN", "OP", "QR", "S", "T", "UZ" };
 		filename += letterGroups[fileNo] + ".txt";
 
-		InputStream stream = Oxford.class.getResourceAsStream(filename);
+		InputStream stream = Dictionary.class.getResourceAsStream(filename);
 		if (stream == null)
 			System.err.println("Resource not located.");
 		Scanner input = null;
