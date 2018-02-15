@@ -4,7 +4,7 @@ public class PasswordMaker {
 
     public static void main(String[] args) {
         // Use the Dictionary library to create a secure password.
-        // ADDING A COMMENt
+        // ADDING A COMMENT
 
         // 1. Get 2 random words and put them together.
         // 1a. Make sure it is at least 8 characters long. If not, do it again.
