@@ -1,5 +1,8 @@
 package test;
 
+/**
+YOU FAIL!
+**/
 public class PasswordMaker {
 
     public static void main(String[] args) {
